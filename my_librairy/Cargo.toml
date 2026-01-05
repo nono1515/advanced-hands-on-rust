@@ -1,0 +1,22 @@
+[package]
+name = "my_librairy"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+rand = { workspace = true }
+rand_pcg = { workspace = true, optional = true }
+rand_xorshit = { workspace = true, optional = true }
+
+[dev-dependencies]
+criterion = { version = "=0.5.*", features = ["html_reports"] }
+
+[features]
+default = ["pcg"]
+pcg = ["rand_pcg"]
+xorhift = ["rand_xorshit"]
+
+
+[[bench]]
+name = "random"
+harness = false
